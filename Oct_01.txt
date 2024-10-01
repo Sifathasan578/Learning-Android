@@ -1,0 +1,31 @@
+Date: 01.10.2024
+
+Native Android
+	Java
+	Kotlin: We will be working with Kotlin
+Hybrid Android
+
+IOS: ipa
+Android: apk
+
+Kotlin extension: .kt
+
+Off Days: Monday & Thursday
+
+Resource folder: UI related things
+Java Folder: Backend works
+
+App: module ?? (Broad topic, bhai will discuss about this later)
+Package: A place where sources are stored
+
+Topics that will be discussed later (Broad Topics):
+OOP 
+Data structure & Algo
+Solid
+Design pattern 
+architectural pattern
+
+To-Do:
+Android Studio IDE Installation
+Theory study: Material Design, Basic Kotlin, Figma
+Try to understand android studio somewhat
