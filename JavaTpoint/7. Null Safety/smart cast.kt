@@ -8,7 +8,7 @@ fun main() {
 
     /*When we try to access a nullable type of String without safe cast it will generate a compile error.*/
 
-    /*Solution #1: Safe Call/ Elvis Operator "?.": This will only access length if str is not null. If null it will return null without throwing an exception*/
+    /*Solution #1: Safe Call "?.": This will only access length if str is not null. If null it will return null without throwing an exception*/
     println(str?.length)
 
     /*Solution #2: Non-null assertion: !! (ensuring there will not be any null)*/
