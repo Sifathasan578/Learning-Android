@@ -61,8 +61,6 @@ class Box( // primary constructor, usual way to do
     } // works too
     // without doing it we can just initialize in primary too so don't need
 
-
-
     // can have multiple init, but recommended to have one
     // kotlin has default arguments, so we do not need to create different constructors for every combination of arguments
     // avoid secondary constructor, video does show it!
