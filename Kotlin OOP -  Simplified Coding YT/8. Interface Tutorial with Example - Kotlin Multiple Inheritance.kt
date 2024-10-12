@@ -58,3 +58,21 @@ interface Player {
 
     fun play ()
 }
+
+/*
+Note: 
+Interface
+	same as abstract class
+	contain: abstract class & abstract numbers
+	can not have init & constructor
+	allow more than one extend
+	all the functions and members are function by default
+	no constructor means no parenthesis
+	
+interface can not have init & constructor but abstract allow those
+when extend abstract, we need to call constructor
+
+abstract doesn't allow more than one extend, to solve it we use interfaces
+
+Whenever you want to use multiple inheritance you use interfaces
+*/
