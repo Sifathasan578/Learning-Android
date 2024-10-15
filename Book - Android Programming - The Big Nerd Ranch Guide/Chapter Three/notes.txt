@@ -1,0 +1,149 @@
+rotation problem
+solve of rotation problem
+
+when rotate even if you are in the next question you will see the first one. 
+
+solution in chapter 4
+
+understand root cause to deal with related bugs
+
+***
+Activity States and Lifecycle Callbacks
+
+States of activity:
+	non-existent
+	stopped
+	paused
+	resumed
+
+onCreate()
+onStart()
+onResume()
+onPause()
+onStop()
+onRestart()
+onDestroy()
+
+Didn't get it very much. Not the activity cycle that I studied:
+
+I understand the functions, but unable to correlate with the states. 
+
+Nonexistent -> onCreate() -> Stopped -> onStart() -> Paused -> onResume() -> Resumed -> onPause() -> Paused -> onStop() -> Stopped -> onDestroy() -> Nonexistent
+
+3.4
+	has instance in memory
+	is visible to user
+	is active in the foreground
+	
+
+lifecycle callback functions
+	onCreate(Bundle?)
+	
+	
+sending log messages
+	
+// more deeper
+public static Int d(String tag, String msg)
+
+MainActivity Filter in logcat
+hide kore ekhon vanish hoye geche
+
+why use override, 
+super keyword
+
+familiarize with logcat functionalitites
+
+Start app
+	onCreate(Bundle?)
+	onStart() 
+	onResume() -> Resumed State(mem, vis, fore)
+	
+Temp Leave
+	Press home button when app running
+	
+	onPause()
+	onStop() -> 
+	Stopped State(mem, not vis, not fore)
+	not onDestroy(): you can come back
+	
+	if I return to this activity again and if it is in stopped state then:
+		onRestart()
+		onStart()
+		onResume()
+		Resumed State
+		
+	sometimes on onStop() OS can destroy the app
+	
+understood the activity hands on
+
+Bundle?: ???
+	
+paused state: partial visible
+because new activity can be transparent, small screen window, multi window
+
+split screen view
+
+back: 
+	onPause()
+	onStop()
+	onDestroy() [if app wants]
+	NonExistance State
+	
+
+Reason behind bug
+Why os destroys activity when rotates
+	changes device configuration
+	Explanation
+
+
+created landscape layout
+
+android view: summary of the files
+
+configuration qualifier
+	android identifies which resources best match for current device configuration
+	
+landscape and default layout
+	in landscape mode android will pick it, otherwise default
+	
+	FrameLayout is used here
+	
+
+
+# UI Updates and Multi-Window
+Mode
+
+Pre-Nougat: Don't have dual functionality
+
+In dual video mode video stops when you are trying to chat with a different screen
+
+Solution: 
+Move your playback resuming and pausing to onStart() and
+onStop(). This goes for any live-updating data, like a photo gallery app that refreshes to show new
+images as they are pushed to a Flickr stream (as you will see later in this book).
+In short, in the post-Nougat world, your activities should update the UI during their entire visible
+lifecycle, from onStart() to onStop().
+
+This is explain more clearly later!
+
+
+#Log Levels
+	A level that species how important the log message is
+	
+Log.e: Errors
+Log.w: Warnings
+Log.i: Informaitonal Messages
+Log.d: Debug Output
+Log.v: Development Only
+
+Log function's second parameter can be used as Throwable also takes those two arguments
+
+// Log a message at DEBUG log level
+// Finding error for index out of bounds
+Log.d(TAG, "Current question index: $currentIndex")
+try {
+	val question = questionBank[currentIndex]
+} catch (ex: ArrayIndexOutOfBoundsException) {
+	// Log a message at ERROR log level, along with an exception stack trace
+	Log.e(TAG, "Index was out of bounds", ex)
+}
