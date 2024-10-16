@@ -1,0 +1,73 @@
+# Fourth Chapter
+
+Creating a ViewModel to save UI data
+
+val provider: ViewModelProvider = ViewModelProviders.of(this)
+val quizViewModel = provider.get(QuizViewModel::class.java)
+Log.d(TAG, "Got a QuizViewModel: $quizViewModel")
+
+// More research needed
+
+
+// Successful: 
+2024-10-16 17:57:50.833 30299-30299 NinoIT                  com.bignerdranch.android.geoquiz     D  onCreate(Bundle?) called
+2024-10-16 17:57:51.542 30299-30299 QuizViewModel           com.bignerdranch.android.geoquiz     D  ViewModel instance created
+2024-10-16 17:57:51.542 30299-30299 NinoIT                  com.bignerdranch.android.geoquiz     D  Got a quizViewModel: com.bignerdranch.android.geoquiz.QuizViewModel@a5fa118
+2024-10-16 17:57:51.673 30299-30299 NinoIT                  com.bignerdranch.android.geoquiz     D  onStart() called
+2024-10-16 17:57:51.721 30299-30299 NinoIT                  com.bignerdranch.android.geoquiz     D  onResume() called
+
+
+private val quizViewModel: QuizViewModel by lazy {
+ViewModelProviders.of(this).get(QuizViewModel::class.java)
+}
+
+// Need more research
+tag:NinoIT tag:QuizViewModel
+
+Bhai viewModel diye ki process death e data save kora jay?
+
+
+// Fourth Chapter
+        /*
+        This version is deprecated!
+        val provider: ViewModelProvider = ViewModelProviders.of(this)
+        val quizViewModel = provider.get(QuizViewModel::class.java)*/
+
+        /*val quizViewModel = ViewModelProvider(this).get(QuizViewModel::class.java)
+        Log.d(TAG, "Got a quizViewModel: $quizViewModel")*/
+
+        /*
+            For a Fragment:
+            val quizViewModel = ViewModelProvider(requireActivity()).get(QuizViewModel::class.java)
+            Here, this refers to the Activity, and requireActivity() is used to get the activity when you're in a Fragment.
+            Yet to know about Fragment
+        */
+
+
+// this override ensures that class has the function I am overriding
+    override fun onStart() {
+        super.onStart()
+        Log.d(TAG, "onStart() called")
+    }
+
+
+// by lazy: ??
+    private val quizViewModel: QuizViewModel by lazy {
+        ViewModelProvider(this).get(QuizViewModel::class.java)
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
